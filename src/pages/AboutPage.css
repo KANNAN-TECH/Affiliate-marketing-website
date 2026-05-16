@@ -1,0 +1,180 @@
+/* About Page */
+.about-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* Story */
+.about-story-inner {
+  position: relative;
+  overflow: hidden;
+  padding: 48px;
+  display: flex;
+  gap: 40px;
+}
+
+.story-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--accent-green), var(--accent-blue));
+  border-radius: 12px 0 0 12px;
+}
+
+.story-content { flex: 1; }
+
+.story-title {
+  font-size: clamp(22px, 4vw, 32px);
+  margin-bottom: 20px;
+}
+
+.story-text {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.story-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Values */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.value-card {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.value-icon {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.value-title {
+  font-size: 18px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.value-desc {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Founder Card */
+.founder-card {
+  padding: 48px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.founder-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+  color: #0A0A0F;
+  flex-shrink: 0;
+  box-shadow: 0 0 30px rgba(0,192,112,0.25);
+}
+
+.founder-info {
+  flex: 1;
+}
+
+.founder-name {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.founder-role {
+  color: var(--accent-green);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.founder-bio {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 540px;
+}
+
+.founder-stack-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  font-family: var(--font-heading);
+}
+
+.founder-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.founder-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.founder-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.founder-contact-link:hover {
+  color: var(--accent-green);
+}
+
+.founder-contact-link svg {
+  color: var(--accent-green);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .about-story-inner,
+  .founder-card {
+    flex-direction: column;
+    padding: 28px 24px;
+    gap: 24px;
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  .founder-avatar {
+    width: 72px;
+    height: 72px;
+    font-size: 28px;
+  }
+}
