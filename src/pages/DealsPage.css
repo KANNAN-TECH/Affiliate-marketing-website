@@ -124,4 +124,16 @@
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
+
+@media (max-width: 768px) {
+  .deals-page {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+  .deals-search-wrapper {
+    max-width: 100% !important;
+  }
+}
+

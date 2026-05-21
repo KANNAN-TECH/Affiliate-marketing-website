@@ -169,12 +169,12 @@ export default function DealsPage() {
             </div>
 
             {/* Sorting Select Option */}
-            <div className="flex items-center gap-3 w-full md:w-auto justify-end">
+            <div className="flex items-center gap-3 w-full md:w-auto md:justify-end">
               <span className="text-slate-400 text-sm font-semibold whitespace-nowrap font-heading">Sort by:</span>
               <select
                 value={sortBy}
                 onChange={e => setSortBy(e.target.value)}
-                className="deals-select w-full md:w-52"
+                className="deals-select flex-1 md:flex-none md:w-52"
                 aria-label="Sort options"
               >
                 {sortOptions.map(opt => (

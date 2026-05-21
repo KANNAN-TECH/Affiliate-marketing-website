@@ -191,4 +191,48 @@
   .toc-sidebar {
     display: none;
   }
+  .action-sidebar {
+    position: relative;
+    top: auto;
+    margin-top: 16px;
+  }
 }
+
+@media (max-width: 576px) {
+  .deal-details-page {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+  .floating-cta-bar .max-w-7xl {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    gap: 0 !important;
+  }
+  .floating-cta-bar .flex.items-center.gap-3 {
+    display: none !important;
+  }
+  .floating-cta-bar .flex.items-center.gap-4 {
+    width: 100%;
+  }
+  .floating-cta-bar .flex.items-center.gap-4 a {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px !important;
+    font-size: 14px !important;
+    height: 48px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .spec-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px 0;
+  }
+  .spec-row span:last-child {
+    text-align: left;
+  }
+}
+

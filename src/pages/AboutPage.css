@@ -162,19 +162,28 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .about-story-inner,
   .founder-card {
     flex-direction: column;
-    padding: 28px 24px;
-    gap: 24px;
+    padding: 36px 32px;
+    gap: 28px;
   }
   .values-grid {
     grid-template-columns: 1fr;
   }
   .founder-avatar {
-    width: 72px;
-    height: 72px;
-    font-size: 28px;
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
   }
 }
+
+@media (max-width: 640px) {
+  .about-story-inner,
+  .founder-card {
+    padding: 28px 20px;
+    gap: 20px;
+  }
+}
+
