@@ -1,0 +1,40 @@
+/* --- Shared Page Hero Styles --- */
+.page-hero {
+  padding: 140px 0 60px 0;
+  position: relative;
+  text-align: center;
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: clamp(36px, 5vw, 56px);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.page-subtitle {
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.page-hero-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 300px;
+  background: radial-gradient(circle at top, rgba(0, 192, 112, 0.15), transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}

@@ -1,0 +1,127 @@
+/* ==========================================================
+   DEALS PAGE - CUSTOM COMPLEMENTARY STYLES
+   Integrates seamlessly with Tailwind CSS utilities.
+   ========================================================== */
+
+.deals-page {
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Page Hero glowing orb */
+.deals-hero-glow {
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 192, 112, 0.15) 0%, rgba(14, 165, 233, 0.05) 50%, transparent 100%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom Search Box inside Deals Page */
+.deals-search-wrapper {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.deals-search-wrapper:focus-within {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 25px rgba(0, 192, 112, 0.15);
+  transform: scale(1.01);
+}
+
+/* Custom Select Dropdowns */
+.deals-select {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.deals-select:hover, .deals-select:focus {
+  border-color: var(--accent-green);
+  background: var(--bg-card-hover);
+}
+
+/* Category Pill Buttons on Deals Page */
+.deal-pill {
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.deal-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.deal-pill.active {
+  background: rgba(0, 192, 112, 0.1);
+  color: var(--accent-green);
+  border-color: var(--accent-green);
+  box-shadow: 0 0 15px rgba(0, 192, 112, 0.15);
+}
+
+/* Tailwind Cards hover additions */
+.deal-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.deal-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-card);
+  padding: 1.5px;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.deal-card:hover::before {
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+}
+
+/* Card stars design spacing */
+.deal-stars {
+  letter-spacing: 2px;
+}
+
+/* Custom Scrollbar for Horizontal Categories Row */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

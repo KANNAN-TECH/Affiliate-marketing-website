@@ -1,0 +1,194 @@
+/* ==========================================================
+   DEAL DETAILS PAGE - STYLESHEET
+   Harmonious with Space Grotesk + Inter dark theme variables.
+   ========================================================== */
+
+.deal-details-page {
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glowing orbs on details page */
+.d-orb-1 {
+  top: -100px;
+  right: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, transparent 80%);
+}
+
+.d-orb-2 {
+  bottom: 20%;
+  left: -250px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 192, 112, 0.08) 0%, transparent 80%);
+}
+
+/* Breadcrumbs overrides */
+.d-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 20px;
+  font-family: var(--font-heading);
+}
+
+.d-breadcrumb a {
+  transition: color 0.2s ease;
+}
+
+.d-breadcrumb a:hover {
+  color: var(--accent-green);
+}
+
+/* Table of Contents Sticky Sidebar */
+.toc-sidebar {
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.toc-link {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-left: 2px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-heading);
+}
+
+.toc-link:hover {
+  color: var(--text-primary);
+  border-left-color: rgba(255, 255, 255, 0.2);
+  padding-left: 16px;
+}
+
+.toc-link.active {
+  color: var(--accent-green);
+  border-left-color: var(--accent-green);
+  background: rgba(0, 192, 112, 0.03);
+  padding-left: 16px;
+}
+
+/* Sticky Action Sidebar Widget */
+.action-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+/* Specs Highlight Table */
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.spec-row:last-child {
+  border-bottom: none;
+}
+
+/* Real-world Pros & Cons boxes */
+.pro-con-card {
+  background: rgba(30, 41, 59, 0.3);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* FAQ dynamic accordion headers */
+.faq-header {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-header:hover {
+  border-color: var(--accent-green);
+  background: rgba(30, 41, 59, 0.7);
+}
+
+.faq-header.open {
+  border-color: var(--accent-green);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: rgba(30, 41, 59, 0.8);
+}
+
+.faq-body {
+  padding: 20px 24px;
+  background: rgba(15, 23, 42, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Floating scroll header/footer CTA */
+.floating-cta-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+  transform: translateY(120%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-cta-bar.visible {
+  transform: translateY(0);
+}
+
+.floating-cta-bar.top-bar {
+  top: 0;
+  bottom: auto;
+  border-top: none;
+  transform: translateY(-120%);
+}
+
+.floating-cta-bar.top-bar.visible {
+  transform: translateY(0);
+}
+
+.floating-cta-bar.bottom-bar {
+  bottom: 0;
+  top: auto;
+  border-bottom: none;
+}
+
+/* Responsive sidebars collapse */
+@media (max-width: 1024px) {
+  .toc-sidebar {
+    display: none;
+  }
+}

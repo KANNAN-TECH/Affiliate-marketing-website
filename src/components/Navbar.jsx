@@ -4,9 +4,9 @@ import './Navbar.css'
 
 const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'Tools', path: '/tools' },
   { label: 'Blog', path: '/blog' },
   { label: 'About', path: '/about' },
+  { label: 'Contact', path: '/contact' },
 ]
 
 export default function Navbar() {
@@ -48,8 +48,8 @@ export default function Navbar() {
         </nav>
 
         {/* CTA */}
-        <Link to="/tools" className="btn-primary btn-sm navbar-cta">
-          Get Best Deals →
+        <Link to="/blog" className="btn-primary btn-sm navbar-cta">
+          Explore Blogs →
         </Link>
 
         {/* Hamburger */}
@@ -76,8 +76,8 @@ export default function Navbar() {
             {label}
           </NavLink>
         ))}
-        <Link to="/tools" className="btn-primary" style={{ marginTop: '12px', width: '100%', justifyContent: 'center' }}>
-          Get Best Deals →
+        <Link to="/blog" className="btn-primary" style={{ marginTop: '12px', width: '100%', justifyContent: 'center' }}>
+          Explore Blogs →
         </Link>
       </div>
     </header>

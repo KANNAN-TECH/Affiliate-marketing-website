@@ -1,6 +1,6 @@
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import useScrollAnimation from '../hooks/useScrollAnimation'
-import { allPosts } from '../data/blogData'
 import './HomePage.css'
 
 /* ---- Hero ---- */
@@ -22,11 +22,8 @@ function HeroSection() {
           No fake hype. No hidden agendas.
         </p>
         <div className="hero-ctas">
-          <Link to="/tools" className="btn-primary btn-pulse" id="hero-cta-primary">
-            Explore Top Tools →
-          </Link>
-          <Link to="/blog" className="btn-ghost" id="hero-cta-secondary">
-            Read Latest Reviews
+          <Link to="/blog" className="btn-primary btn-pulse" id="hero-cta-primary">
+            Explore Blogs →
           </Link>
         </div>
       </div>
@@ -65,6 +62,7 @@ const categories = [
     badge: 'Highest Commission',
     badgeClass: 'badge-amber',
     id: 'category-hosting',
+    query: 'Web Hosting',
   },
   {
     icon: (
@@ -79,6 +77,7 @@ const categories = [
     badge: 'Trending 2026',
     badgeClass: 'badge-blue',
     id: 'category-ai',
+    query: 'AI Tools',
   },
   {
     icon: (
@@ -92,6 +91,7 @@ const categories = [
     badge: 'High Payout',
     badgeClass: 'badge-green',
     id: 'category-vpn',
+    query: 'VPN',
   },
   {
     icon: (
@@ -105,6 +105,7 @@ const categories = [
     badge: 'Fresher Friendly',
     badgeClass: 'badge-purple',
     id: 'category-courses',
+    query: 'Coding Courses',
   },
   {
     icon: (
@@ -118,6 +119,7 @@ const categories = [
     badge: "Editor's Choice",
     badgeClass: 'badge-blue',
     id: 'category-devtools',
+    query: 'Developer Tools',
   },
   {
     icon: (
@@ -132,8 +134,9 @@ const categories = [
     badge: 'Hot Right Now',
     badgeClass: 'badge-amber',
     id: 'category-career',
+    query: 'Resume/ATS Tools',
   },
-]
+];
 
 function CategoriesSection() {
   const titleRef = useScrollAnimation()
@@ -159,18 +162,19 @@ function CategoriesSection() {
 function CategoryCard({ cat, delay }) {
   const ref = useScrollAnimation()
   return (
-    <article
+    <Link
+      to={`/blog?category=${encodeURIComponent(cat.query)}`}
       className="cat-card card fade-up"
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ transitionDelay: `${delay}ms`, textDecoration: 'none', color: 'inherit' }}
       id={cat.id}
     >
       <div className="cat-card-icon" aria-hidden="true">{cat.icon}</div>
       <span className={`badge ${cat.badgeClass} cat-badge`}>{cat.badge}</span>
       <h3 className="cat-card-title">{cat.title}</h3>
       <p className="cat-card-desc">{cat.desc}</p>
-      <Link to="/tools" className="cat-card-cta">{cat.cta}</Link>
-    </article>
+      <span className="cat-card-cta">{cat.cta}</span>
+    </Link>
   )
 }
 
@@ -188,6 +192,7 @@ const topTools = [
     link: 'https://hostinger.com?ref=devkart',
     tags: ['Hosting', 'Beginner Friendly', 'MERN', 'Best Value'],
     id: 'tool-hostinger',
+    dealId: 'deal-hostinger',
   },
   {
     name: 'NordVPN',
@@ -201,6 +206,7 @@ const topTools = [
     link: 'https://nordvpn.com?ref=devkart',
     tags: ['VPN', 'Security', 'Remote Work', 'High Commission'],
     id: 'tool-nordvpn',
+    dealId: 'deal-nordvpn',
   },
   {
     name: 'Canva Pro',
@@ -214,6 +220,7 @@ const topTools = [
     link: 'https://canva.com?ref=devkart',
     tags: ['AI Tools', 'Design', 'Recurring Commission'],
     id: 'tool-canva',
+    dealId: 'deal-canva',
   },
 ]
 
@@ -234,7 +241,7 @@ function TopToolsSection() {
           ))}
         </div>
         <div className="tools-viewall">
-          <Link to="/tools" className="viewall-link">View all 50+ reviewed tools →</Link>
+          <Link to="/blog" className="viewall-link">View all 100+ blogs →</Link>
         </div>
       </div>
     </section>
@@ -295,74 +302,19 @@ function ToolCard({ tool, delay }) {
           >
             {tool.cta}
           </a>
+          {tool.dealId && (
+            <Link
+              to={`/blog/${tool.dealId}`}
+              className="btn-ghost btn-sm"
+              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+            >
+              Read Review →
+            </Link>
+          )}
           <span className="affiliate-chip">*Affiliate link — we earn a small commission at no extra cost to you</span>
         </div>
       </div>
     </article>
-  )
-}
-
-/* ---- Blog Posts ---- */
-const blogPosts = allPosts.slice(0, 3)
-
-function BlogSection() {
-  const titleRef = useScrollAnimation()
-  return (
-    <section className="section-padding blog-section" aria-labelledby="blog-heading">
-      <div className="container">
-        <div className="section-header" ref={titleRef}>
-          <h2 className="section-title fade-up" id="blog-heading">Latest from DevKart Blog</h2>
-          <p className="section-subtitle fade-up">
-            Tutorials, comparisons & career guides — written by a developer.
-          </p>
-        </div>
-        <div className="blog-grid">
-          {blogPosts.map((post, i) => (
-            <BlogCard key={post.id} post={post} delay={i * 100} />
-          ))}
-        </div>
-        <div className="blog-viewall">
-          <Link to="/blog" className="btn-ghost" id="blog-viewall-btn">View All Blog Posts →</Link>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function BlogCard({ post, delay }) {
-  const ref = useScrollAnimation()
-  return (
-    <Link
-      to={`/blog/${post.slug}`}
-      className="blog-card card fade-up"
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      id={post.id}
-      aria-label={`Read article: ${post.title}`}
-    >
-      <div
-        className="blog-card-img"
-        style={{ background: post.gradient || 'linear-gradient(135deg, rgba(0,192,112,0.1), rgba(14,165,233,0.08))' }}
-        aria-hidden="true"
-      >
-        <div className="blog-img-placeholder">
-          <svg width="40" height="40" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" viewBox="0 0 24 24">
-            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-          </svg>
-        </div>
-      </div>
-      <div className="blog-card-body">
-        <span className={`badge ${post.badgeClass}`}>{post.badge}</span>
-        <h3 className="blog-title">{post.title}</h3>
-        <p className="blog-excerpt">{post.excerpt}</p>
-        <div className="blog-footer">
-          <span className="blog-readtime">⏱ {post.readTime} read</span>
-          <span className="blog-cta">Read Article →</span>
-        </div>
-      </div>
-    </Link>
   )
 }
 
@@ -437,11 +389,14 @@ function NewsletterSection() {
 export default function HomePage() {
   return (
     <>
+      <Helmet>
+        <title>DevKart — Best Dev Tools, Hosting &amp; Career Resources for Developers</title>
+        <link rel="canonical" href="https://devkart.in/" />
+      </Helmet>
       <HeroSection />
       <CategoriesSection />
       <TopToolsSection />
       <TrustBar />
-      <BlogSection />
       <NewsletterSection />
     </>
   )

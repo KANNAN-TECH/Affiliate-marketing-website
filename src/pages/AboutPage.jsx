@@ -1,6 +1,6 @@
 import useScrollAnimation from '../hooks/useScrollAnimation'
+import './PageHero.css'
 import './AboutPage.css'
-import './ToolsPage.css'
 
 const values = [
   { icon: '🔍', title: 'Honest Reviews', desc: 'Every tool is genuinely tested or thoroughly researched. No paid positive reviews.' },

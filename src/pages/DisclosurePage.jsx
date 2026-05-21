@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom'
 import useScrollAnimation from '../hooks/useScrollAnimation'
-import './ToolsPage.css'
+import './PageHero.css'
 import './DisclosurePage.css'
 
 const sections = [

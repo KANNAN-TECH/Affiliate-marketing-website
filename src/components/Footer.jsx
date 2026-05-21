@@ -2,17 +2,20 @@ import { Link } from 'react-router-dom'
 import './Footer.css'
 
 const categories = [
-  'Web Hosting', 'AI Tools', 'VPN & Security',
-  'Online Courses', 'Developer Tools', 'Career & ATS'
+  { label: 'Web Hosting', query: 'Web Hosting' },
+  { label: 'AI Tools', query: 'AI Tools' },
+  { label: 'VPN & Security', query: 'VPN' },
+  { label: 'Online Courses', query: 'Coding Courses' },
+  { label: 'Developer Tools', query: 'Developer Tools' },
+  { label: 'Career & ATS', query: 'Resume/ATS Tools' }
 ]
 
 const quickLinks = [
   { label: 'About DevKart', path: '/about' },
   { label: 'Blog', path: '/blog' },
-  { label: 'Tools Directory', path: '/tools' },
   { label: 'Affiliate Disclosure', path: '/affiliate-disclosure' },
   { label: 'Privacy Policy', path: '/privacy' },
-  { label: 'Contact', path: '/about' },
+  { label: 'Contact', path: '/contact' },
 ]
 
 export default function Footer() {
@@ -65,8 +68,8 @@ export default function Footer() {
             <h3 className="footer-col-title">Categories</h3>
             <ul className="footer-links-list">
               {categories.map(cat => (
-                <li key={cat}>
-                  <Link to="/tools">{cat}</Link>
+                <li key={cat.label}>
+                  <Link to={`/blog?category=${encodeURIComponent(cat.query)}`}>{cat.label}</Link>
                 </li>
               ))}
             </ul>
@@ -123,7 +126,7 @@ export default function Footer() {
           <div className="footer-bottom-links">
             <Link to="/affiliate-disclosure">Affiliate Disclosure</Link>
             <Link to="/privacy">Privacy</Link>
-            <Link to="/sitemap">Sitemap</Link>
+            <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer">Sitemap</a>
           </div>
         </div>
       </div>
