@@ -11,6 +11,7 @@ import DealsPage from './pages/DealsPage'
 import DealDetailsPage from './pages/DealDetailsPage'
 import ExitIntentPopup from './components/ExitIntentPopup'
 import { SpeedInsights } from '@vercel/speed-insights/react'
+import { Analytics } from '@vercel/analytics/react'
 import './App.css'
 
 function ScrollToTop() {
@@ -43,6 +44,7 @@ function App() {
       <ExitIntentPopup />
       <Footer />
       <SpeedInsights />
+      <Analytics />
     </div>
   )
 }
